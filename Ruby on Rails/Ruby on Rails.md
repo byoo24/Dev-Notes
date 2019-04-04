@@ -1,26 +1,20 @@
 # *Table of Contents*
-1. [Best Practices](#best-practices)
-2. [Variable Scope Indicators](#var-scope)
-3. [Object Types](#obj-types)
-4. [Arrays](#arrays)
-5. [Hashes](#hashes)
-6. [Sets](#sets)
-7. [Splat Operator](#splat)
-8. [Inject Methods](#inject)
-9. [Sort Methods](#sort)
-10. [Merge Methods](#merge)
-11. [Procs](#procs)
-12. [Using &](#ampersand)
-13. [Conditionals](#conditionals)
-14. [Iterators](#iterators)
-15. [Exit a Running Script](#exit)
-16. [Inputs](#inputs)
-17. [Outputs](#outputs)
-18. [Find Methods](#find)
-19. [Load, Require, and Include](#load)
+1. [Rails getting started](#started)
+2. [Controllers](#controllers)
+3. [Routes](#routes)
+4. [Databases](#databases)
+5. [Migrations](#migrations)
+6. [Models and ActiveRecord](#models)
+7. [Named Scopes](#named-scopes)
+8. [Associations](#associations)
+9. [CRUD, REST, and Resourceful Routes](#crud)
+10. [Assets](#assets)
+11. [Forms](#forms)
+12. [Data Validation](#data-validation)
 
 
 
+<a name="started"></a>
 # **Rails Getting Started**
 
 ```ruby
@@ -67,8 +61,8 @@ rails db:schema:dump
 - - -
 
 
-
-# **2. Controllers**
+<a name="controllers"></a>
+# **Controllers**
 
 ```ruby
 # Generate New Controller
@@ -123,8 +117,8 @@ end
 - - -
 
 
-
-# **3. Routes**
+<a name="routes"></a>
+# **Routes**
 Type commands in `config/routes.rb`
 
 * `Simple (Match) Route`
@@ -177,8 +171,8 @@ resources :products, :only => [:index, :show]
 - - -
 
 
-
-# **4. Databases**
+<a name="databases"></a>
+# **Databases**
 * Index - Data structure on a table to increase lookup speed
 * Foreign Key - Table column whose values reference rows in another table
 * Schema - The structural definition of a database.
@@ -222,8 +216,8 @@ rails db:schema:dump
 - - -
 
 
-
-# **5. Migrations**
+<a name="migrations"></a>
+# **Migrations**
 * Adds tables to the database (written in Ruby)
 * "Migrate" your database from one state to another
 * Contains instructions for both:
@@ -352,8 +346,8 @@ remove_index(table, column)
 - - -
 
 
-
-# **6. Models and ActiveRecord**
+<a name="models"></a>
+# **Models and ActiveRecord**
 ```ruby
 rails generate model ModelName
 ```
@@ -542,8 +536,8 @@ order("position DESC")
 - - -
 
 
-
-# **7. Named Scopes**
+<a name="named-scopes"></a>
+# **Named Scopes**
 * Write your own Query Method, which can use and combine built-in Query Methods
 * Defined using ActiveRelation query methods
 * Can be called like ActiveRelation methods
@@ -598,8 +592,8 @@ end
 - - -
 
 
-
-# **8. Associations**
+<a name="associations"></a>
+# **Associations**
 
 ### *ActiveRecord Associations*
 * One-to-one
@@ -730,8 +724,8 @@ Section has_many :admin_users, :through => :section_edits
 - - -
 
 
-
-# **9. CRUD, REST, and Resourceful Routes**
+<a name="crud"></a>
+# **CRUD, REST, and Resourceful Routes**
 
 | CRUD | Action | HTTP Verb | URL | URL Helper |
 | --- |
@@ -794,8 +788,8 @@ subject_path(5)   <!-- generates the same url as above -->
 
 
 
-
-# **10. Assets**
+<a name="assets"></a>
+# **Assets**
 
 ### *Manifest Files*
 * Contain directives for including asset files
@@ -886,8 +880,8 @@ escape_javascript_tag() or j()
 - - -
 
 
-
-# **11. Forms**
+<a name="forms"></a>
+# **Forms**
 
 ### *Rails/ERB vs HTML*
 
@@ -1081,8 +1075,8 @@ object.errors.full_messages.each {|msg| ... }
 - - -
 
 
-
-# **12. Data Validation**
+<a name="data-validation"></a>
+# **Data Validation**
 
 ### *Validations*
 * Ensure data meets requirements before saving to database
