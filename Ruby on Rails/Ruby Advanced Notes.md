@@ -11,6 +11,8 @@
     1. [Custom Exceptions](#custom-exceptions)
 
 
+- - -
+
 
 <a name="init"></a>
 # init.rb
@@ -31,6 +33,9 @@ pig = Animal.new
 pig.noise = "Oink!"
 puts pig.make_noise
 ```
+
+
+- - -
 
 
 <a name="class-template"></a>
@@ -98,6 +103,8 @@ end
 ```
 
 
+- - -
+
 
 <a name="class-inheritance"></a>
 # Class Inheritance
@@ -131,6 +138,8 @@ end
 ```
 
 
+- - -
+
 
 <a name="modules"></a>
 # Modules
@@ -139,6 +148,8 @@ end
 * Different from classes: cannot be instantiated
 * Two different modules: `Namespacing and Mixins`
 
+
+- - -
 
 
 <a name="namespacing"></a>
@@ -160,6 +171,8 @@ dinner = MarkSparks::Date.new # "going on a date"
 dinner.date = Date.new # "built-in calendar date"
 ```
 
+
+- - -
 
 
 <a name="mixins"></a>
@@ -199,6 +212,9 @@ class Customer
   include ContactInfo
 end
 ```
+
+
+- - -
 
 
 <a name="exceptions"></a>
@@ -263,6 +279,10 @@ rescue RuntimeError => e
 rescue => e # Any StandardError and its Subclasses
   puts "#{e.class} handled"
 ```
+
+
+- - -
+
 
 <a name="custom-exceptions"></a>
 ## *Custom Exceptions*

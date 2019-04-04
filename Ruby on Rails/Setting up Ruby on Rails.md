@@ -1,6 +1,25 @@
 # **Setting up a Ruby Development Environment**
 
-### Xcode
+# *Table of Contents*
+1. [Xcode](#xcode)
+2. [Homebrew](#homebrew)
+3. [Git](#git)
+4. [VS Code](#vscode)
+5. [Rbenv + Ruby](#rbenv)
+6. [Gems](#gems)
+7. [Installying Pry](#pry)
+8. [Using Byebug](#byebug)
+9. [Install Rails](#rails)
+10. [Install MySQL](#mysql)
+11. [Web Servers](#web)
+
+
+- - -
+
+
+<a name="xcode"></a>
+# Xcode
+
 The Xcode command line tools are a requirement for installing the homebrew package manager in the next step.
 
 Install the Xcode command line tools by running the following from the console.
@@ -14,8 +33,12 @@ To check the version of Xcode:
 gcc -v
 ```
 
+- - -
 
-### Homebrew
+
+<a name="homebrew"></a>
+# Homebrew
+
 https://brew.sh/
 
 Enter the following in your terminal to download and install Homebrew:
@@ -31,7 +54,12 @@ brew update
 ```
 
 
-### Git
+- - -
+
+
+<a name="git"></a>
+# Git
+
 Git is a version control system that allows us to track, commit and revert changes to files within a directory. Here we will install it and add global user info.
 ```
 # install git
@@ -48,7 +76,12 @@ git config --global user.email your_email_here
 ```
 
 
-### VS Code
+- - -
+
+
+<a name="vscode"></a>
+# VS Code
+
 Go to `code.visualstudio.com`, then download and install VS Code.
 
 To verify that the shell commands were installed correctly, run `which code` in your terminal. If `code` is not a recognized command, open the VS Code editor, open the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Linux) and type `shell command` to find the `Shell Command: Install 'code' command in PATH` command. Then restart the terminal. This allows you to easily open files in VS Code from the terminal using the `code` command followed by a file or directory.
@@ -56,7 +89,12 @@ To verify that the shell commands were installed correctly, run `which code` in 
 Next, we'll want to install a few useful VS Code extensions and configure VS Code to play nice with these extensions. Download the zip file, which contains a scripts that will do the work for you. Unzip the file and open the `setup_vscode` directory. Then open that directory in the terminal (drag and drop it over the terminal icon on macOS or right click in the directory and select `Open in Terminal` on most Linux distributions). To run the script, type `./setup_vscode.sh`. The script will do the rest. Simply restart VS Code and you'll be good to go. (Note that there's a second script, called `setup_vscode_linter.sh`. We can't run this script yet but will do so in due time.)
 
 
-# **Rbenv + Ruby**
+- - -
+
+
+<a name="rbenv"></a>
+# Rbenv + Ruby
+
 https://github.com/rbenv/rbenv
 
 We like rbenv because it allows us to switch between versions of Ruby easily and setup default versions to use within project directories. This will install instances of Ruby in addition to the system version, which comes pre-installed.
@@ -97,7 +135,13 @@ ruby -v # => 2.5.1
 which ruby # => /Users/your-username/.rbenv/shims/ruby
 ```
 
-### Gems
+
+- - -
+
+
+<a name="gems"></a>
+# Gems
+
 https://rubygems.org
 
 There are a few gems we will want to access globally.
@@ -109,8 +153,12 @@ Pry is an alternative to the Irb (the default Ruby REPL). It is not only more po
 Byebug is feature-rich debugging tool for Ruby. With Byebug you can halt the execution of your code and inspect/track variables and the flow of execution. Lots of cool features in here, so check out the [Byebug docs](https://github.com/deivid-rodriguez/byebug)!
 
 
+- - -
 
-# **Installing Pry**
+
+<a name="pry"></a>
+# Installing Pry
+
 https://github.com/pry/pry/blob/master/README.md
 ```
 gem install pry
@@ -129,7 +177,12 @@ gem install pry-doc
 | `show-source` is_prime? |
 
 
-# **Using Byebug**
+- - -
+
+
+<a name="byebug"></a>
+# Using Byebug
+
 In Ruby versions 2.0 and greater, we can use Byebug as a debugging tool.
 ```
 gem install byebug
@@ -151,13 +204,22 @@ While you're in debugger mode:
 | `display <variable>` |
 
 
-# **Install Rails**
+- - -
+
+
+<a name="rails"></a>
+# Install Rails
+
 ```
 gem install rails
 ```
 
 
-# **Install MySQL**
+- - -
+
+
+<a name="mysql"></a>
+# Install MySQL
 ```
   brew install mysql
 
@@ -182,7 +244,12 @@ gem install rails
 ```
 
 
-# **Web Servers**
+- - -
+
+
+<a name="web"></a>
+# Web Servers
+
 * Apache 2
 * NGINX ("Engine X")
 * Passenger
