@@ -3,15 +3,18 @@ https://docs.ruby-lang.org/en/2.0.0/syntax_rdoc.html
 
 # **Table of Contents**
 1. [Best Practices](#best-practices)
+2. [Variable Scope Indicators](#var-scope)
 
 
 
-## Best Practices <a name="best-practices"></a>
+<a name="best-practices"></a>
+## Best Practices
 Put a `shebang` line at the top. UNIX doesn't use file convention to run the program. So this line is telling ruby how to run the program. This makes it portable because for anything besides UNIX it is viewed as a comment `#`.
 ```
 #!/usr/bin/env ruby
 ```
 
+<a name="var-scope"></a>
 ## Variable Scope Indicators
 | Type | Syntax |
 | --- | --- |
