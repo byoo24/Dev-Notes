@@ -35,6 +35,8 @@ Put a `shebang` line at the top. UNIX doesn't use file convention to run the pro
 ```
 
 
+- - -
+
 
 <a name="var-scope"></a>
 # Variable Scope Indicators
@@ -47,6 +49,8 @@ Put a `shebang` line at the top. UNIX doesn't use file convention to run the pro
 | Local | variable |
 | Block | variable |
 
+
+- - -
 
 
 <a name="obj-types"></a>
@@ -61,6 +65,8 @@ Put a `shebang` line at the top. UNIX doesn't use file convention to run the pro
 | Exclusive range | 1...10 |
 | nil |  |
 
+
+- - -
 
 
 <a name="arrays"></a>
@@ -78,6 +84,8 @@ Array.new(<size>) { [] }
 Array.new(<size>) { Array.new(<size>, <default>) }
 ```
 
+
+- - -
 
 
 <a name="hashes"></a>
@@ -104,6 +112,8 @@ p array.to_h
 ```
 
 
+- - -
+
 
 <a name="sets"></a>
 # Sets
@@ -122,6 +132,8 @@ s1.subset?(s2)                #=> false
 s2.subset?(s1)                #=> true
 ```
 
+
+- - -
 
 
 <a name="splat"></a>
@@ -161,6 +173,9 @@ p new_hash    # => {:a=>1, :b=>2, :c=>3}
 ```
 
 
+- - -
+
+
 <a name="inject"></a>
 # Inject Methods
 
@@ -180,6 +195,9 @@ p [11, 7, 2, 4].inject do |acc, el|
   el < acc ? el : acc
 end # => 2
 ```
+
+
+- - -
 
 
 <a name="sort"></a>
@@ -203,6 +221,8 @@ x = array.sort {|v1, v2| v1 <=> v2}
 ```
 
 
+- - -
+
 
 <a name="merge"></a>
 # Merge Methods
@@ -216,6 +236,8 @@ h1.merge(h2) {|key, old, new| new}
 # code block is only called if there is a conflict with the keys
 ```
 
+
+- - -
 
 
 <a name="procs"></a>
@@ -263,6 +285,8 @@ add_and_proc(1, 4) {|num| num * 2}    # => 10
 ```
 
 
+- - -
+
 
 <a name="ampersand"></a>
 # Using &
@@ -289,6 +313,8 @@ add_and_proc(1, 4, &doubler)    # => 10
 [1, 2, 5].select(&:odd?)          # => [1, 5]
 ```
 
+
+- - -
 
 
 <a name="conditionals"></a>
@@ -317,6 +343,8 @@ puts "Hello" if greeting_enabled
 ```
 
 
+- - -
+
 
 <a name="iterators"></a>
 # Iterators:
@@ -341,6 +369,8 @@ puts "Hello" if greeting_enabled
 |      | .each_pair |
 
 
+- - -
+
 
 <a name="exit"></a>
 # Exit a Running script
@@ -351,6 +381,8 @@ puts "Hello" if greeting_enabled
 | abort( msg ) |
 | Type: control + c |
 
+
+- - -
 
 
 <a name="inputs"></a>
@@ -363,6 +395,8 @@ puts "Hello" if greeting_enabled
 | chomp | Removes the last character of a string if it is a new line character |
 
 
+- - -
+
 
 <a name="outputs"></a>
 # Output
@@ -373,6 +407,8 @@ puts "Hello" if greeting_enabled
 | puts | puts adds some formatting and adds a new line |
 | p | prints to the screen with a new line and gives information on the type of data printed |
 
+
+- - -
 
 
 <a name="find"></a>
@@ -386,6 +422,8 @@ puts "Hello" if greeting_enabled
 | .all? | .detect |
 | .delete_if |
 
+
+- - -
 
 
 <a name="load"></a>

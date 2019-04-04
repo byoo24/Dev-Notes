@@ -1,4 +1,27 @@
-# **1. Rails Getting Started**
+# *Table of Contents*
+1. [Best Practices](#best-practices)
+2. [Variable Scope Indicators](#var-scope)
+3. [Object Types](#obj-types)
+4. [Arrays](#arrays)
+5. [Hashes](#hashes)
+6. [Sets](#sets)
+7. [Splat Operator](#splat)
+8. [Inject Methods](#inject)
+9. [Sort Methods](#sort)
+10. [Merge Methods](#merge)
+11. [Procs](#procs)
+12. [Using &](#ampersand)
+13. [Conditionals](#conditionals)
+14. [Iterators](#iterators)
+15. [Exit a Running Script](#exit)
+16. [Inputs](#inputs)
+17. [Outputs](#outputs)
+18. [Find Methods](#find)
+19. [Load, Require, and Include](#load)
+
+
+
+# **Rails Getting Started**
 
 ```ruby
 # Create rails project:
