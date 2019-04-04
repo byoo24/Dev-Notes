@@ -5,10 +5,10 @@
 2. [Class Template](#class-template)
 3. [Class Inheritance](#class-inheritance)
 4. [Modules](#arrays)
-  A. [Namespacing](#namespacing)
-  B. [Mixins](#mixins)
+    1. [Namespacing](#namespacing)
+    2. [Mixins](#mixins)
 5. [Exceptions](#exceptions)
-  A. [Custom Exceptions](#custom-exceptions)
+    1. [Custom Exceptions](#custom-exceptions)
 
 
 
