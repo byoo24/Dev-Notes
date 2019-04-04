@@ -13,7 +13,7 @@ https://docs.ruby-lang.org/en/2.0.0/syntax_rdoc.html
 9. [Sort Methods](#sort)
 10. [Merge Methods](#merge)
 11. [Procs](#procs)
-12. [Using](#ampersand)
+12. [Using &](#ampersand)
 13. [Conditionals](#conditionals)
 14. [Iterators](#iterators)
 15. [Exit a Running Script](#exit)
@@ -124,7 +124,7 @@ s2.subset?(s1)                #=> true
 
 
 
-<a name="arrays"></a>
+<a name="splat"></a>
 # Splat Operator
 
 + Splat allows us to take in additional arguments.
