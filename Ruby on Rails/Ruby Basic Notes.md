@@ -1,21 +1,44 @@
 # **Ruby Basic Notes**
 https://docs.ruby-lang.org/en/2.0.0/syntax_rdoc.html
 
-# **Table of Contents**
+# *Table of Contents*
 1. [Best Practices](#best-practices)
 2. [Variable Scope Indicators](#var-scope)
+3. [Object Types](#obj-types)
+4. [Arrays](#arrays)
+5. [Hashes](#hashes)
+6. [Sets](#sets)
+7. [Splat Operator](#splat)
+8. [Inject Methods](#inject)
+9. [Sort Methods](#sort)
+10. [Merge Methods](#merge)
+11. [Procs](#procs)
+12. [Using](#ampersand)
+13. [Conditionals](#conditionals)
+14. [Iterators](#iterators)
+15. [Exit a Running Script](#exit)
+16. [Inputs](#inputs)
+17. [Outputs](#outputs)
+18. [Find Methods](#find)
+19. [Load, Require, and Include](#load)
+
+
 
 
 
 <a name="best-practices"></a>
-## Best Practices
+# Best Practices
+
 Put a `shebang` line at the top. UNIX doesn't use file convention to run the program. So this line is telling ruby how to run the program. This makes it portable because for anything besides UNIX it is viewed as a comment `#`.
 ```
 #!/usr/bin/env ruby
 ```
 
+
+
 <a name="var-scope"></a>
-## Variable Scope Indicators
+# Variable Scope Indicators
+
 | Type | Syntax |
 | --- | --- |
 | Global | $variable |
@@ -25,7 +48,10 @@ Put a `shebang` line at the top. UNIX doesn't use file convention to run the pro
 | Block | variable |
 
 
-## Object Types
+
+<a name="obj-types"></a>
+# Object Types
+
 | Type | Syntax |
 | --- | --- |
 | Variables | temp = 48 |
@@ -36,10 +62,71 @@ Put a `shebang` line at the top. UNIX doesn't use file convention to run the pro
 | nil |  |
 
 
-=================================
+
+<a name="arrays"></a>
+# Arrays
+
+```ruby
+# Set default value in new Array
+# ==========================
+Array.new(<size>, <default>)
 
 
-# **Splat Operator**
+# Set an array as default value in Array
+# ======================================
+Array.new(<size>) { [] }
+Array.new(<size>) { Array.new(<size>, <default>) }
+```
+
+
+
+<a name="hashes"></a>
+# Hashes
+
+```ruby
+# Set default value in new Hash
+# ==============
+Hash.new(<default>)
+
+
+# Set array as default value in new Hash
+# ========================
+Hash.new {|h, k| h[k] = []}
+
+
+# Convert an array into a new Hash
+# ==========================
+array = [["k1", "v1"], ["k2", "v2"], ["k3", "v3"]]
+
+p Hash[array]
+p array.to_h
+# => {"k1"=>"v1", "k2"=>"v2", "k3"=>"v3"}
+```
+
+
+
+<a name="sets"></a>
+# Sets
+
+Hybrid of an Array and a Hash's fast lookup
+
+```ruby
+require 'set'
+
+s1 = Set[1, 2]                #=> #<Set: {1, 2}>
+s2 = [1, 2].to_set            #=> #<Set: {1, 2}>
+s1 == s2                      #=> true
+s1.add("foo")                 #=> #<Set: {1, 2, "foo"}>
+s1.merge([2, 6])              #=> #<Set: {1, 2, "foo", 6}>
+s1.subset?(s2)                #=> false
+s2.subset?(s1)                #=> true
+```
+
+
+
+<a name="arrays"></a>
+# Splat Operator
+
 + Splat allows us to take in additional arguments.
 + Splat allows us to decompose an array
 + Splat allows us to decompose a hash
@@ -74,10 +161,9 @@ p new_hash    # => {:a=>1, :b=>2, :c=>3}
 ```
 
 
-=================================
+<a name="inject"></a>
+# Inject Methods
 
-
-# **Inject Methods**
 `.inject` requires two variables: "Accumulator" and "Element"
 
 | Command |
@@ -96,10 +182,9 @@ end # => 2
 ```
 
 
-=================================
+<a name="sort"></a>
+# Sort Methods
 
-
-# **Sort Methods**
 | Command |
 | --- |
 | .sort |
@@ -117,9 +202,11 @@ array = [5,8,2,6,1,3]
 x = array.sort {|v1, v2| v1 <=> v2}
 ```
 
-=================================
 
-# **Merge Methods**
+
+<a name="merge"></a>
+# Merge Methods
+
 Merge only works with `hashes`
 ```
 h1 = {:a => 2, :b => 4, :c => 6}
@@ -130,10 +217,9 @@ h1.merge(h2) {|key, old, new| new}
 ```
 
 
-=================================
 
-
-# **Procs**
+<a name="procs"></a>
+# Procs
 
 ## *Creating & Calling a Proc*
 Creating: turn a Block into a Proc
@@ -177,10 +263,11 @@ add_and_proc(1, 4) {|num| num * 2}    # => 10
 ```
 
 
-=================================
 
+<a name="ampersand"></a>
+# Using &
 
-# **Using &**
+## *Convert a block into a proc*
 We can use `&` to convert a block into a proc, and vise versa.
 
 ```ruby
@@ -194,59 +281,19 @@ add_and_proc(1, 4, &doubler)    # => 10
 ```
 
 
-=================================
 
-
-# **Using Methods as Blocks**
+## *Using Methods as Blocks*
 
 ```ruby
 ["a", "b", "c"].map(&:upcase)     # => ["A", "B", "C"]
 [1, 2, 5].select(&:odd?)          # => [1, 5]
-
 ```
 
 
-=================================
 
+<a name="conditionals"></a>
+# Conditionals
 
-# **Handling Exceptions**
-To handle exceptions use: `begin` ... `rescue`
-
-view advanced notes for more details
-
-
-=================================
-
-# **Arrays**
-```ruby
-# Default values in Array
-Array.new(<size>, <default>)
-
-
-# Arrays within an Array
-# ======================
-Array.new(<size>) { Array.new(<size>) }
-```
-
-=================================
-
-# **Hashes**
-```ruby
-# Default Values
-# ==============
-Hash.new(<value>)
-
-
-# Default Arrays
-# ==============
-Hash.new {|h, k| h[k] = []}
-```
-
-
-=================================
-
-
-## Control Structures
 | Type | Example |
 | --- | --- |
 | Conditionals | if elsif else |
@@ -254,7 +301,7 @@ Hash.new {|h, k| h[k] = []}
 |              | case when else |
 
 
-## Conditionals: Shorthand operators
+## *Conditionals: Shorthand operators*
 ```ruby
 # Ternary Operator
 boolean ? result1 : result2
@@ -270,10 +317,10 @@ puts "Hello" if greeting_enabled
 ```
 
 
-=================================
 
+<a name="iterators"></a>
+# Iterators:
 
-## Iterators:
 | Class | Examples |
 | --- | --- |
 | Numbers | .times |
@@ -294,10 +341,10 @@ puts "Hello" if greeting_enabled
 |      | .each_pair |
 
 
-=================================
 
+<a name="exit"></a>
+# Exit a Running script
 
-## Exit a Running script
 | Type |
 | --- |
 | exit, exit! |
@@ -305,10 +352,10 @@ puts "Hello" if greeting_enabled
 | Type: control + c |
 
 
-=================================
 
+<a name="inputs"></a>
+# Input
 
-## Input
 | Command | Description |
 | --- | --- |
 | gets | waits for user input |
@@ -316,10 +363,10 @@ puts "Hello" if greeting_enabled
 | chomp | Removes the last character of a string if it is a new line character |
 
 
-=================================
 
+<a name="outputs"></a>
+# Output
 
-## Output
 | Command | Description |
 | --- | --- |
 | print | print will do minimal formatting and not add a new line |
@@ -327,10 +374,10 @@ puts "Hello" if greeting_enabled
 | p | prints to the screen with a new line and gives information on the type of data printed |
 
 
-=================================
 
+<a name="find"></a>
+# Find Methods
 
-## *Find Methods*
 | Command |
 | --- |
 | .find | .detect |
@@ -340,10 +387,10 @@ puts "Hello" if greeting_enabled
 | .delete_if |
 
 
-=================================
 
+<a name="load"></a>
+# *Load, Require, and Include*
 
-# **Load, Require, and Include**
 | Command | Description |
 | --- | --- |
 | `load` | loads a source file every time it is called **(not used very often)** |
