@@ -4,7 +4,7 @@
 1. [init.rb](#init)
 2. [Class Template](#class-template)
 3. [Class Inheritance](#class-inheritance)
-4. [Modules](#arrays)
+4. [Modules](#modules)
     1. [Namespacing](#namespacing)
     2. [Mixins](#mixins)
 5. [Exceptions](#exceptions)
