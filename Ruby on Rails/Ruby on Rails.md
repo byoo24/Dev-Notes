@@ -728,15 +728,15 @@ Section has_many :admin_users, :through => :section_edits
 # **CRUD, REST, and Resourceful Routes**
 
 | CRUD | Action | HTTP Verb | URL | URL Helper |
-| --- |
+| ---    | ---      | ---   | --- | ---        |
 | Create | `new`    | GET   | /subjects/new | new_subject_path |
-|        | create | POST  | /subjects | subjects_path |
+|        | create   | POST  | /subjects | subjects_path |
 | Read   | `index`  | GET   | /subjects | subjects_path |
 |        | `show`   | GET   | /subjects/:id | subject_path(:id) |
 | Update | `edit`   | GET   | /subjects/:id/edit | edit_subject_path(:id) |
-|        | update | PATCH | /subjects/:id | subject_path(:id) |
+|        | update   | PATCH | /subjects/:id | subject_path(:id) |
 | Delete | `delete` | GET   | /subjects/:id/delete | delete_subject_path(:id) |
-|        | destroy | DELETE | /subjects/:id | subject_path(:id)
+|        | destroy  | DELETE | /subjects/:id | subject_path(:id)
 
 ### *REST in Rails*
 ```html
