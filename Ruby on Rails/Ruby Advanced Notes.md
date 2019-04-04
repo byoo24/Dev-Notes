@@ -1,7 +1,20 @@
 # **Ruby Advanced Notes**
 
+# *Table of Contents*
+1. [init.rb](#init)
+2. [Class Template](#class-template)
+3. [Class Inheritance](#class-inheritance)
+4. [Modules](#arrays)
+  1. [Namespacing](#namespacing)
+  2. [Mixins](#mixins)
+5. [Exceptions](#exceptions)
+  1. [Custom Exceptions](#custom-exceptions)
 
-## init.rb
+
+
+<a name="init"></a>
+# init.rb
+
 ```ruby
 #!/usr/bin/env ruby
 
@@ -20,15 +33,14 @@ puts pig.make_noise
 ```
 
 
+<a name="class-template"></a>
+# Class Template
 
-
-
-# **Class Template**
 * initialize => Instance Method
 * @var_1 => Instance Variables
 
 
-### *Method Access Control*
+## *Method Access Control*
 | Type | Description |
 | --- | --- |
 | public | anyone can access (default) |
@@ -86,7 +98,10 @@ end
 ```
 
 
-# **Class Inheritance**
+
+<a name="class-inheritance"></a>
+# Class Inheritance
+
 * A class needs to modify or extend the behavior of another class
 
 ```ruby
@@ -116,12 +131,19 @@ end
 ```
 
 
-# **Modules**
+
+<a name="modules"></a>
+# Modules
+
 * Wrappers around Ruby code
 * Different from classes: cannot be instantiated
 * Two different modules: `Namespacing and Mixins`
 
-### *Namespacing*
+
+
+<a name="namespacing"></a>
+## *Namespacing*
+
 * Prevents conflicts when code has similarly named classes and methods
 * Frequently used to namespace classes in open-source plugins
 
@@ -138,7 +160,11 @@ dinner = MarkSparks::Date.new # "going on a date"
 dinner.date = Date.new # "built-in calendar date"
 ```
 
-### *Mixins*
+
+
+<a name="mixins"></a>
+## *Mixins*
+
 * Ruby only allows subclasses to inherit from one superclass (parent)
 * Modules allow us to package up shared functionality
 * Modules can then be mixed in to a class (like a Class Fragment)
@@ -175,13 +201,14 @@ end
 ```
 
 
-
+<a name="exceptions"></a>
 # **Exceptions in Ruby**
+
 https://ruby-doc.org/core-2.5.1/Exception.html
 
 The behavior of `begin...rescue` is this: The code in the `begin` block will execute until an exception is reached. Once an exception is reached, the execution will immediately jump to `rescue`
 
-***Common Error Types:***
+## *Common Error Types:*
 * ArgumentError
 * NameError
 * NoMethodError
@@ -189,7 +216,7 @@ The behavior of `begin...rescue` is this: The code in the `begin` block will exe
 * TypeError
 * ZeroDivisionError
 
-#### Raising Exceptions
+## *Raising Exceptions*
 * Exception#class
 * Exception#message
 * Exception#backtrace
@@ -237,8 +264,8 @@ rescue => e # Any StandardError and its Subclasses
   puts "#{e.class} handled"
 ```
 
-
-#### Custom Exceptions
+<a name="custom-exceptions"></a>
+## *Custom Exceptions*
 
 ```ruby
 class TooLoudError < StandardError
