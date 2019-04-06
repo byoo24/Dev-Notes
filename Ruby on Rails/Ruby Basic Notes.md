@@ -28,6 +28,13 @@ https://docs.ruby-lang.org/en/2.0.0/syntax_rdoc.html
 
 <a name="best-practices"></a>
 # Best Practices
+Wrap your test code in `if __FILE__ == $PROGRAM_NAME` so it only runs when your file is invoked directly.
+```ruby
+if __FILE__ == $PROGRAM_NAME
+    <execute the code>
+end
+```
+
 
 Put a `shebang` line at the top. UNIX doesn't use file convention to run the program. So this line is telling ruby how to run the program. This makes it portable because for anything besides UNIX it is viewed as a comment `#`.
 ```
