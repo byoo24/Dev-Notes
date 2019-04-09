@@ -15,12 +15,10 @@ https://docs.ruby-lang.org/en/2.0.0/syntax_rdoc.html
 11. [Procs](#procs)
 12. [Using &](#ampersand)
 13. [Conditionals](#conditionals)
-14. [Iterators](#iterators)
-15. [Exit a Running Script](#exit)
-16. [Inputs](#inputs)
-17. [Outputs](#outputs)
-18. [Find Methods](#find)
-19. [Load, Require, and Include](#load)
+14. [Exit a Running Script](#exit)
+15. [Inputs](#inputs)
+16. [Outputs](#outputs)
+17. [Load, Require, and Include](#load)
 
 
 - - -
@@ -350,30 +348,7 @@ puts "Hello" if greeting_enabled
 ```
 
 
-- - -
 
-
-<a name="iterators"></a>
-# Iterators:
-
-| Class | Examples |
-| --- | --- |
-| Numbers | .times |
-|         | .upto |
-|         | .downto |
-|         | .step |
-| Range | .each |
-|       | .step |
-| String | .each_line |
-|        | .each_char |
-|        | .each_byte |
-| Array | .each |
-|       | .each_index |
-|       | .each_with_index |
-| Hash | .each |
-|      | .each_key |
-|      | .each_value |
-|      | .each_pair |
 
 
 - - -
@@ -415,19 +390,7 @@ puts "Hello" if greeting_enabled
 | p | prints to the screen with a new line and gives information on the type of data printed |
 
 
-- - -
 
-
-<a name="find"></a>
-# Find Methods
-
-| Command |
-| --- |
-| .find | .detect |
-| .find_all | .select |
-| .any? | .none? |
-| .all? | .detect |
-| .delete_if |
 
 
 - - -

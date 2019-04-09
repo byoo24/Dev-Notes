@@ -7,7 +7,8 @@
 4. [Modules](#modules)
     1. [Namespacing](#namespacing)
     2. [Mixins](#mixins)
-5. [Exceptions](#exceptions)
+5. [Recursion Strategies](#recursion)
+6. [Exceptions](#exceptions)
     1. [Custom Exceptions](#custom-exceptions)
 
 
@@ -217,8 +218,28 @@ end
 - - -
 
 
+<a name="recursion"></a>
+# Recursion Strategies
+
+**Get a stack trace.** Ruby won't normally print a stack trace for stack overflow errors, because this might print several thousand lines to the screen. If you're having a hard time debugging a stack overflow, you can paste the following code snippet at the top of your file. The snippet will intentionally crash your program before the stack overflow occurs, allowing you to read the stack trace.
+
+```ruby
+MAX_STACK_SIZE = 200
+tracer = proc do |event|
+  if event == 'call' && caller_locations.length > MAX_STACK_SIZE
+    fail "Probable Stack Overflow"
+  end
+end
+
+set_trace_func(tracer)
+```
+
+
+- - -
+
+
 <a name="exceptions"></a>
-# **Exceptions in Ruby**
+# Exceptions in Ruby
 
 https://ruby-doc.org/core-2.5.1/Exception.html
 
