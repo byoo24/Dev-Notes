@@ -10,6 +10,7 @@
 5. [Recursion Strategies](#recursion)
 6. [Exceptions](#exceptions)
     1. [Custom Exceptions](#custom-exceptions)
+7. [Singleton & Marshal](#singleton-marshal)
 
 
 - - -
@@ -242,6 +243,18 @@ set_trace_func(tracer)
 # Exceptions in Ruby
 
 https://ruby-doc.org/core-2.5.1/Exception.html
+http://blog.nicksieger.com/articles/2006/09/06/rubys-exception-hierarchy/
+
+| Commands           | Description |
+| --------           | -----       |
+| `raise`            | The method stops executing. Instead of returning, an exception is thrown. |
+| `begin`...`rescue` | Run the code in `begin` until an exception is reached. Once an exception is reached, it will jump to `rescue` |
+| `ensure`           | This code is required to run whether an exception was reached or not |
+| `retry`            | Repeat the `begin` block from the beginning. It is useful for "looping" until an operation completes successfully |
+
+* `rescue`
+* `begin`...`rescue`
+* begin...rescue...`ensure`
 
 The behavior of `begin...rescue` is this: The code in the `begin` block will execute until an exception is reached. Once an exception is reached, the execution will immediately jump to `rescue`
 
@@ -259,6 +272,7 @@ The behavior of `begin...rescue` is this: The code in the `begin` block will exe
 * Exception#backtrace
 * Exception#full_message
 
+## Raise
 ```ruby
 def even_numbers(array)
   unless array.is_a?(Array)
@@ -266,12 +280,15 @@ def even_numbers(array)
   end
 
   if array.length == 0
+    # The method stops executing. Instead of returning, an exception is thrown.
     raise StandardError.new("Too few elements")
   end
 end
+```
 
-#============================
 
+## Begin...Rescue
+```ruby
 begin
   divide(x, y)
 
@@ -301,8 +318,32 @@ rescue => e # Any StandardError and its Subclasses
   puts "#{e.class} handled"
 ```
 
+## Ensure
+```ruby
+begin
+  a_dangerous_operation
+rescue StandardError => e
+  puts "Something went wrong: #{e.message}"
+ensure
+  puts "No matter what, make sure to execute this!"
+end
+
+# ============================
+
+# Common Example, closing files:
+f = File.open
+begin
+  f << a_dangerous_operation
+ensure
+  #must. close. file.
+  f.close
+end
+```
+
+
 
 - - -
+
 
 
 <a name="custom-exceptions"></a>
@@ -344,3 +385,14 @@ rescue TooLoudError => e
   # This is how we can add data to a log file.
 end
 ```
+
+
+
+- - -
+
+
+
+<a name="singleton-marshal">
+# Singleton and Marshal
+
+http://ruby-doc.org/stdlib-1.9.3/libdoc/singleton/rdoc/Singleton.html#module-Singleton-label-Usage
