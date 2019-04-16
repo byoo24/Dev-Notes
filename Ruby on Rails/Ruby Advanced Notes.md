@@ -17,7 +17,7 @@
 
 
 <a name="init"></a>
-# init.rb
+# init.rb (example)
 
 ```ruby
 #!/usr/bin/env ruby
@@ -247,16 +247,11 @@ http://blog.nicksieger.com/articles/2006/09/06/rubys-exception-hierarchy/
 
 | Commands           | Description |
 | --------           | -----       |
-| `raise`            | The method stops executing. Instead of returning, an exception is thrown. |
+| `raise`            | The program stops executing. Instead of returning, an exception is thrown. |
 | `begin`...`rescue` | Run the code in `begin` until an exception is reached. Once an exception is reached, it will jump to `rescue` |
 | `ensure`           | This code is required to run whether an exception was reached or not |
 | `retry`            | Repeat the `begin` block from the beginning. It is useful for "looping" until an operation completes successfully |
 
-* `rescue`
-* `begin`...`rescue`
-* begin...rescue...`ensure`
-
-The behavior of `begin...rescue` is this: The code in the `begin` block will execute until an exception is reached. Once an exception is reached, the execution will immediately jump to `rescue`
 
 ## *Common Error Types:*
 * ArgumentError

@@ -377,6 +377,20 @@ puts "Hello" if greeting_enabled
 | chomp | Removes the last character of a string if it is a new line character |
 
 
+<a name="read-from-file"></a>
+## *Read from File*
+
+https://ruby-doc.org/core-2.1.0/IO.html#method-i-read
+
+```ruby
+def self.from_file(filename)
+  rows = File.readlines(filename).map(&:chomp)
+    # other code
+  end
+end
+
+```
+
 - - -
 
 
