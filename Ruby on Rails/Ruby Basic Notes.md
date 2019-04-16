@@ -383,10 +383,9 @@ puts "Hello" if greeting_enabled
 https://ruby-doc.org/core-2.1.0/IO.html#method-i-read
 
 ```ruby
-def self.from_file(filename)
-  rows = File.readlines(filename).map(&:chomp)
-    # other code
-  end
+def initialize(dictionary_file_name)
+  @dictionary = File.readlines(dictionary_file_name).map(&:chomp)
+  @dictionary = Set.new(@dictionary)
 end
 
 ```
