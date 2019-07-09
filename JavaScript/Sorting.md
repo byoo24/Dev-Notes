@@ -14,7 +14,7 @@
 * Time Complexity: O(n^2)
 * Space Complexity: O(1)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/BubbleSort.gif" width="300">
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/BubbleSort.gif" width="500">
 
 
 ```javascript
@@ -47,7 +47,7 @@ function swap(arr, idx1, idx2) {
 * Time Complexity: O(n^2)
 * Space Complexity: O(1)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/SelectionSort.gif" width="300">
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/SelectionSort.gif" width="500">
 
 ```javascript
 function selectionSort(arr) {
@@ -77,7 +77,7 @@ function swap(arr, idx1, idx2) {
 * Time Complexity: O(n^2)
 * Space Complexity: O(1)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/InsertionSort.gif" width="300">
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/InsertionSort.gif" width="500">
 
 ```javascript
 function insertionSort(arr) {
@@ -99,7 +99,7 @@ function insertionSort(arr) {
 * Time Complexity: O(n log(n))
 * Space Complexity: O(n)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/MergeSort.gif" width="300">
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/MergeSort.gif" width="500">
 
 ```javascript
 function mergeSort(arr) {
@@ -147,7 +147,7 @@ function merge(arr1, arr2) {
     * Worst Case: O(n^2)
 * Space Complexity: O(n)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/QuickSort.gif" width="300">
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/QuickSort.gif" width="500">
 
 ```javascript
 function quickSort(arr) {
@@ -171,15 +171,13 @@ function quickSort(arr) {
 * Time Complexity: O(n * k)
 * Space Complexity: O(n + k)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/RadixSort.gif" width="300">
-
 Radix Sort is a non-comparison, integer sorting algorithm.  It is most often used on lists of binary numbers, but that doesn't mean that its only application is to sort cryptic machine code! All sorts of data can be converted into binary format before being processed, including long strings of text and image data. Regardless of the type of data we'd like to sort, it is critical that all data be converted to binary (or some other integer representation) before Radix Sort is invoked.
 
 The reason we can only run Radix Sort on integer data is because it works by exploiting some specific properties of that data type. Numbers have meta information about themselves baked into their representation - and we're going to take advantage of it.
 
 When working with positive numbers, we know that any 3 digit number is greater than any other 2 digit number. The individual digits themselves are irrelevant. We can write our algorithm without actually comparing any values, simply sorting based on an integer's digit-length.
 
-
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/RadixSort.gif" width="500">
 
 | Helper Function | Question | Returns |
 | --- | --- | --- |
@@ -261,12 +259,11 @@ function radixSortWithNegatives(arr) {
 * Time Complexity: O(n + k)
 * Space Complexity: O(k)
 
-<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/CountingSort.gif" width="300">
-
 Counting Sort is another non-comparison, integer sorting algorithm. It can only be used in the special case where we are sorting integer data. Additionally, we must know the largest interger value in the input array (which we'll refer to as k) prior to beginning our sort. (Or...we must be willing to take the time to search for it first.)
 
 The reason we can only run Counting Sort on integer data is similar to Radix Sort; because it works by exploiting some specific properties of the integer data type. In this case, the property we're exploiting about integers is simpler, and is linked to our friend the array data structure. We're simply going to take advantage of the fact that an arrays indices are integers, and that they are pre-sorted for us. We'll use an array data structure as a storage device for us to count the number of occurences of each integer in our input array. (Thus, the name "Counting Sort".)
 
+<img src="https://raw.githubusercontent.com/byoo24/Dev-Notes/master/images/CountingSort.gif" width="500">
 
 ```javascript
 function countingSort(arr, max) {
