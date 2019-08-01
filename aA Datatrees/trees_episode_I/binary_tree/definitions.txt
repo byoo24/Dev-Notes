@@ -1,0 +1,18 @@
+Graph
+ - is a set of nodes (circles) and edges(lines) between the nodes
+
+Root
+ - is a node of a graph with NO parent
+
+ Leaves
+ - node that has no children
+
+Tree
+ - a graph where there is one unique path between any two nodes
+
+Binary Tree
+ - a tree where nodes have at most 2 children
+
+Binary Search Tree
+    - is a binary tree where at any root, all values in the left subtree are <
+    - AND all values in the right subtree are >=
