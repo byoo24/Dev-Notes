@@ -1,7 +1,7 @@
 node_modules/
 */package-lock.json
-*/yarn-error.log
-*/yarn-lock
+**/yarn-error.log
+**/yarn-lock
 
 /config/keys.js
 /config/keys_dev.js
