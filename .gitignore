@@ -1,3 +1,8 @@
 node_modules/
-aA\ Datatrees/**package.json
-aA\Datatrees/**package-lock.json
+*/package-lock.json
+*/yarn-error.log
+*/yarn-lock
+
+/config/keys.js
+/config/keys_dev.js
+/config/keys_prod.js
