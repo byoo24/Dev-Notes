@@ -1,5 +1,4 @@
 # Installing Dependencies
-
 * express (the main framework)
 * mongoose (to connect and interact with MongoDB)
 * passport (for authentication)
@@ -9,7 +8,16 @@
 * bcryptjs (this one should be familiar)
 * validator (for database validations) 
 
-Let's also install a dev dependency, nodemon, to watch our application for changes. Do this by running `npm install -D nodemon`.
+# Installing Dev Dependencies
+* nodemon
+
+
+
+# Quickstart
+1. Create the server (`express` > `nodemon` > `mongoose`)
+2. Express Routing (`express`)
+3. Mongoose Models (`mongoose`)
+
 
 
 # Mongoose
