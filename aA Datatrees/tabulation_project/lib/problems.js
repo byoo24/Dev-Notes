@@ -20,37 +20,41 @@
 // stepper([3, 1, 0, 5, 10]);           // => true, because we can step through elements 3 -> 5 -> 10
 // stepper([3, 4, 1, 0, 10]);           // => true, because we can step through elements 3 -> 4 -> 10
 // stepper([2, 3, 1, 1, 0, 4, 7, 8])    // => false, there is no way to step to the end
-function stepper(nums) {
-    let table = Array(nums.length).fill(false);
-    table[0] = true;
 
-    for (let i = 0; i < table.length; i++) {
-        if(table[i] === true) {
-            let maxRange = nums[i];
-            for (let j = 1; j <= maxRange; j++) {
-                table[i + j] = true;
-            }
-        }
-    }
+// function stepper(nums) {
+//     const tab = Array(nums.length).fill(false);
+//     tab[0] = true;
 
-    return table[table.length - 1];
-}
+//     for(let i = 0; i < nums.length; i++) {
+//         let steps = nums[i];
 
+//         if(tab[i]) {
+//             let maxRange = nums[i];
 
-function stepperRecur(nums, memo = {}) {
-    if (nums.length in memo) return memo[nums.length];
+//             for(let j = i + 1; j <= maxRange; j++) {
+//                 tab[j] = true;
+//             }
+//         }
+//     }
+
+//     return tab[tab.length - 1];
+// }
+
+function stepper(nums, memo={}) {
+    let key = String(nums);
+    if (key in memo) return memo[key];
     if (nums.length === 0) return true;
-
     let maxRange = nums[0];
+
     for (let step = 1; step <= maxRange; step++) {
-        if (stepper(nums.slice(step), memo)) {
-            memo[nums.length] = true;
-            return true;
+        if(stepper(nums.slice(step), memo)) {
+            memo[key] = true;
+            return memo[key];
         }
     }
 
-    memo[nums.length] = false;
-    return false;
+    memo[key] = false;
+    return memo[key];
 }
 
 
@@ -64,34 +68,33 @@ function stepperRecur(nums, memo = {}) {
 //
 // maxNonAdjacentSum([2, 7, 9, 3, 4])   // => 15, because 2 + 9 + 4
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6 
-function maxNonAdjacentSum(nums) {
-    if(nums.length === 0) return 0;
-    let table = new Array(nums.length).fill(0);
 
-    table[0] = nums[0];
+// function maxNonAdjacentSum(nums) {
+//     if(nums.length <= 0) return 0;
 
-    for (let i = 1; i < nums.length; i++) {
-        let skipLeftNeighbor = table[i - 2] === undefined ? 0 : table[i - 2];
-        let includeThisNum = skipLeftNeighbor + nums[i];
-        let notIncludeThisNum = table[i - 1];
-        table[i] = Math.max(includeThisNum, notIncludeThisNum);
-    }
+//     const table = Array(nums.length).fill(0);
+//     table[0] = nums[0];
+   
+//     for (let i = 1; i < table.length; i++) {
+//         let skipLeftNeighbor = table[i - 2] ? table[i - 2] : 0;
+//         let includeThisNum = skipLeftNeighbor + nums[i];
+//         let notIncludeThisNum = table[i-1];
+//         table[i] = Math.max(includeThisNum, notIncludeThisNum);
+//     }
 
-    return table[table.length - 1];
-}
+//     return table[table.length - 1];
+// }
 
-
-function maxNonAdjacentSumRecur(nums, memo={}) {
+function maxNonAdjacentSum(nums, memo={}) {
     if (nums.length in memo) return memo[nums.length];
-    if(nums.length === 0) return 0;
+    if (nums.length <= 0) return 0;
 
     let firstEle = nums[0];
 
     memo[nums.length] = Math.max(
-        firstEle + maxNonAdjacentSumRecur(nums.slice(2)), 
-        maxNonAdjacentSumRecur(nums.slice(1))
+        firstEle + maxNonAdjacentSum(nums.slice(2), memo), 
+        maxNonAdjacentSum(nums.slice(1), memo)
     );
-
     return memo[nums.length];
 }
 
@@ -109,22 +112,27 @@ function maxNonAdjacentSumRecur(nums, memo={}) {
 // minChange([1, 5, 10, 25], 15)    // => 2, because 10 + 5 = 15
 // minChange([1, 5, 10, 25], 100)   // => 4, because 25 + 25 + 25 + 25 = 100
 function minChange(coins, amount) {
-    let table = new Array(amount + 1).fill(0);
-
+    const table = Array(amount + 1).fill(Infinity);
     table[0] = 0;
 
-    for (let amt = 1; amt < table.length; amt++) {
-        let minValues = [];
+    coins.forEach(coin => {
+        for(let amt = 0; amt < table.length; amt++) {
+            for(let qty = 0; qty * coin <= amt; qty++) {
+                let remainder = amt - qty * coin;
+                let attempt = table[remainder] + qty;
 
-        for (let coin of coins) {
-            if(coin <= amt) {
-                let rem = table[amt - coin] + 1;
-                minValues.push(rem);
-                table[amt] = Math.min(...minValues);
+                if(attempt < table[amt]) {
+                    table[amt] = attempt;
+                }
             }
         }
-    }
+    })
+
+
     return table[table.length - 1];
+
+
+    
 }
 
 
