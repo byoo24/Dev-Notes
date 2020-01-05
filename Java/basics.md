@@ -45,3 +45,62 @@ Integer myIntValue = 56;
 int myInt = myIntValue;
 // "myIntValue" is unboxed to: myIntValue.intValue();
 ```
+
+
+
+
+
+# LinkedList & Iterator
+
+```java
+public static void main(String[] args) {
+    LinkedList<String> nodes = new LinkedList<String>();
+    nodes.add("A");
+    nodes.add("Z");
+    nodes.add("D");
+    nodes.add("G");
+
+    printNodes(nodes);
+}
+
+private static void printNodes(LinkedList<String> nodes) {
+    Iterator<String> i = nodes.iterator();
+
+    while(i.hasNext()) {
+        System.out.println("node: " + i.next());
+    }
+}
+
+private static void addInOrder(LinkedList<String> nodes, String newString) {
+    Iterator<String> strIterator = nodes.iterator();
+
+    while(strIterator.hasNext()) {
+        int comparison = strIterator.next().compareTo(newString);
+
+        if(comparison > 0) {
+            // new String should appear before this one
+            strIterator.previous();
+            strIterator.add(newString);
+        }
+    }
+}
+```
+
+
+
+# Interfaces
+Like a class, an interface can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, no body).  
+
+* Interfaces specify what a class must do and not how. It is the blueprint of the class.
+* An Interface is about capabilities like a Player may be an interface and any class implementing Player must be able to (or must implement) move(). So it specifies a set of methods that the class has to implement.
+* If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract.
+
+```java
+public interface ITelephone {
+    void powerOn();
+    void dial(int phoneNumber);
+    void answer();
+    boolean callPhone(int phoneNumber);
+    boolean isRinging();
+}
+```
